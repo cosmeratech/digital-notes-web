@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box
+}
+
+body {
+  background: linear-gradient(135deg, #c84f44, #556c68);
+  padding: 20px;
+  margin: 0;
+}
+
+.app-header {
+  color: #fff;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#addNoteBtn {
+  padding: 10px 10px;
+  background: #fff;
+  color: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#notesContainer {
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.note { /* note class came from js: const el = document.createElement("div"); el.className = "note"; */
+  background: #ffffffdd;
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.note input {
+  border: none;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.note textarea {
+  border: none;
+  min-height: 120px;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.actions {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.note button {
+  padding: 5px 10px;
+  background: #fff;
+  color: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button.save {
+  background: #22c55e;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 10px 25px rgba(19, 250, 115, 0.936); /* box-shadow: X-offset Y-offset Blur Color; Shadow color */
+}
+
+button.delete {
+  background: #ff4d4d;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 10px 25px rgba(214, 14, 14, 0.936);
+}
+
+button.save:hover {
+  background: #2ad664f7;
+}
+
+button.delete:hover {
+  background: #e71212;
+}
+
+#toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #000;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+#toast.show {opacity: 1; pointer-events: auto;}
+
+/* js added "show" class : toast.classList.add("show"); 
+This changes HTML from: <div id="toast"></div>
+to: <div id="toast" class="show"></div>
+#toast.show { ... }
+Means:
+/* “Apply this style to an element that has id = toast AND class = show”
